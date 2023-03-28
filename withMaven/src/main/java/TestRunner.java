@@ -1,6 +1,8 @@
 import managers.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import pageObjects.HomePage;
+import pageObjects.RegisterPage;
 
 public class TestRunner {
 
@@ -10,7 +12,15 @@ public class TestRunner {
 
         webDriverManager.getDriver().get("https://demo.opencart.com/");
 
-        WebElement myAccountButton = webDriverManager.getDriver().findElement(By.xpath("//*[@id=\"top\"]/div[2]/div[2]/ul/li[2]/div/a/span"));
+        HomePage homePage = new HomePage(webDriverManager.getDriver());
+        homePage.navigateToRegisterPage();
+
+        RegisterPage registerPage = new RegisterPage(webDriverManager.getDriver());
+        registerPage.fillInTheRegisterForm("Elevul", "Bun","elevul.bun@chisinau.md", "789652", "stromgpsw ");
+
+        Thread.sleep(10000);
+
+      /*  WebElement myAccountButton = webDriverManager.getDriver().findElement(By.xpath("//*[@id=\"top\"]/div[2]/div[2]/ul/li[2]/div/a/span"));
         myAccountButton.click();
 
         WebElement registerButton = webDriverManager.getDriver().findElement(By.xpath("//*[@id=\"top\"]/div[2]/div[2]/ul/li[2]/div/ul/li[1]/a"));
@@ -53,7 +63,7 @@ public class TestRunner {
 
         Thread.sleep(2000);
 
-        webDriverManager1.getDriver().close();
+        webDriverManager1.getDriver().close();*/
 
     }
 }
