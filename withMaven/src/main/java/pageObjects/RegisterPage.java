@@ -39,4 +39,9 @@ public class RegisterPage extends Page {
         passwordInput.sendKeys(pasword);
 
     }
+
+    public boolean allTheElementsAreDisplayed (){
+        return firstNameInput.isDisplayed()&& lastNameInput.isDisplayed()&&emailInput.isDisplayed()&& passwordInput.isDisplayed()&&phoneInput.isDisplayed()
+                && privacyCheckBox.isDisplayed();
+    }
 }

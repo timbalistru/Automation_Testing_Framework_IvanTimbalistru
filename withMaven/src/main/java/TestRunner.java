@@ -20,6 +20,8 @@ public class TestRunner {
 
         Thread.sleep(10000);
 
+        webDriverManager.getDriver().close();
+
       /*  WebElement myAccountButton = webDriverManager.getDriver().findElement(By.xpath("//*[@id=\"top\"]/div[2]/div[2]/ul/li[2]/div/a/span"));
         myAccountButton.click();
 
