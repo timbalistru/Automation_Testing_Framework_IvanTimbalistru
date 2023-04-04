@@ -20,7 +20,7 @@ public class JunitPractice {
 
     @Test
     @DisplayName("Adresa URL a paginii Register este disponibila din pagina Home")
-    public void verifyIfRegisterPageIsAccesible() {
+    public void verifyIfRegisterPageIsAccesible() throws InterruptedException {
 
         HomePage homePage = new HomePage(webDriverManager.getDriver());
 
@@ -33,17 +33,16 @@ public class JunitPractice {
     }
 
     @Test
-    @DisplayName("Register page elements are displayed")
-    public void registerPageElementsAreDisplayed() {
+    @DisplayName("Register page elemen        HomePage homePage = new HomePage(webDriverManager.getDriver());\n" +
+            "        homePage.navigateToRegisterPage();\n" +
+            "\n" +
+            "        boolean urlIsValid =webDriverManager.getDriver().getCurrentUrl().contains(\"register\");\n" +
+            "\n" +
+            "        RegisterPage registerPage = new RegisterPage(webDriverManager.getDriver());\n" +
+            "\n" +
+            "        Assertions.assertTrue(registerPage.allTheElementsAreDisplayed(),\"Cel putin unul dintre elemente nu a fost afisat\");\nts are displayed")
+    public void registerPageElementsAreDisplayed() throws InterruptedException {
 
-        HomePage homePage = new HomePage(webDriverManager.getDriver());
-        homePage.navigateToRegisterPage();
-
-        boolean urlIsValid =webDriverManager.getDriver().getCurrentUrl().contains("register");
-
-        RegisterPage registerPage = new RegisterPage(webDriverManager.getDriver());
-
-        Assertions.assertTrue(registerPage.allTheElementsAreDisplayed(),"Cel putin unul dintre elemente nu a fost afisat");
     }
 }
 
