@@ -2,7 +2,6 @@ package managers;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class WebDriverManager {
@@ -13,24 +12,25 @@ public class WebDriverManager {
 
     private WebDriver driver;
 
-    private String webDriverType;
+    private static String webDriverType;
+
+    private static int counter = 0;
 
     private WebDriver createDriver() {
         switch (webDriverType) {
             case "CHROME":
-                System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver.exe");
-                ChromeOptions options = new ChromeOptions();
-                options.addArguments("--remote-allow-origins=*");
-                driver = new ChromeDriver(options);
-                break;
+                counter++;
+                System.out.println("Numarul rularii " + counter);
+                System.setProperty("webdriver.chrome.driver", "src/main/drivers/chromedriver.exe");
+                driver = new ChromeDriver();
 
+                break;
             case "FIREFOX":
-                System.setProperty("webdriver.gecko.driver", "src/main/resources/drivers/geckodriver.exe");
+                System.setProperty("webDriver.firefox.driver", "src/main/drivers/geckodriver.exe");
                 driver = new FirefoxDriver();
                 break;
-
             default:
-                System.out.println("Optiunea folosita nu este valabila! Mai incearca!");
+                System.out.println("This driver is not created");
         }
         return driver;
     }
@@ -39,16 +39,13 @@ public class WebDriverManager {
         if (driver == null) {
             createDriver();
         }
-
         return driver;
-
     }
 
     public void closeDriver() {
         if (driver != null) {
             driver.close();
-            System.out.println("Driver-ul a fost inchis ! ");
+            System.out.println("Driver is closed");
         }
     }
-
 }
