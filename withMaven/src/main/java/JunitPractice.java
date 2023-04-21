@@ -20,7 +20,7 @@ public class JunitPractice {
 
     @Test
     @DisplayName("Adresa URL a paginii Register este disponibila din pagina Home")
-    public void verifyIfRegisterPageIsAccesible() {
+    public void verifyIfRegisterPageIsAccesible() throws InterruptedException {
 
         HomePage homePage = new HomePage(webDriverManager.getDriver());
 
@@ -34,7 +34,7 @@ public class JunitPractice {
 
     @Test
     @DisplayName("Register page elements are displayed")
-    public void registerPageElementsAreDisplayed() {
+    public void registerPageElementsAreDisplayed() throws InterruptedException {
 
         HomePage homePage = new HomePage(webDriverManager.getDriver());
         homePage.navigateToRegisterPage();

@@ -1,5 +1,6 @@
 package pageObjects;
 
+import managers.WaitManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,40 +9,73 @@ public class RegisterPage extends Page {
 
     public RegisterPage(WebDriver driver) {
         super(driver);
+
+    }
+
+    @Override
+    public boolean allTheElementsAreDisplayed() {
+        return false;
+    }
+
+    @Override
+    public void fillInTheRegisterForm(String elevul, String bun, String s, String s1, String stromgpsw_) {
+
     }
 
     @FindBy(id = "input-firstname")
     private WebElement firstNameInput;
 
-    @FindBy(id ="input-lastname")
+    @FindBy(xpath = "//*[@id=\"input-lastname\"]")
     private WebElement lastNameInput;
 
-    @FindBy(id ="input-email")
+    @FindBy(xpath = "//*[@id=\"input-email\"]")
     private WebElement emailInput;
 
     @FindBy(id = "input-telephone")
-    private WebElement phoneInput;
+    private WebElement telephoneInput;
 
     @FindBy(id = "input-password")
     private WebElement passwordInput;
 
-    @FindBy(xpath = "//*[@id=\"content\"]/form/div/div/input[1]")
-    private WebElement privacyCheckBox;
+    @FindBy(xpath = "//*[@id=\"input-confirm\"]")
+    private WebElement passwordConfirmInput;
 
-    @FindBy(css="#form-register > div > div > button" )
+    @FindBy(xpath = "//*[@name=\"agree\"]")
+    private WebElement privaceCheckBox;
+
+    @FindBy(xpath = "//*[@id=\"content\"]/form/div/div/input[2]")
     private WebElement continueButton;
 
-    public  void fillInTheRegisterForm(String firstName, String lastName, String email, String phone, String pasword){
+
+    public void fillInTheRegisterPage(String firstName, String lastName, String email, String phone, String password, String confirmPassword) throws InterruptedException {
+
+        WaitManager.waitTillTheElemenentIsClickable(emailInput);
+
         firstNameInput.sendKeys(firstName);
         lastNameInput.sendKeys(lastName);
+        Thread.sleep(2000);
         emailInput.sendKeys(email);
-        phoneInput.sendKeys(phone);
-        passwordInput.sendKeys(pasword);
+        telephoneInput.sendKeys(phone);
+        passwordInput.sendKeys(password);
+        passwordConfirmInput.sendKeys(confirmPassword);
+        privaceCheckBox.click();
+        continueButton.click();
 
     }
 
-    public boolean allTheElementsAreDisplayed (){
-        return firstNameInput.isDisplayed()&& lastNameInput.isDisplayed()&&emailInput.isDisplayed()&& passwordInput.isDisplayed()&&phoneInput.isDisplayed()
-                && privacyCheckBox.isDisplayed();
+    public boolean allTheElementsAreDisplyed() {
+        return firstNameInput.isDisplayed() && lastNameInput.isDisplayed() && emailInput.isDisplayed() && telephoneInput.isDisplayed()
+                && passwordInput.isDisplayed() && passwordConfirmInput.isDisplayed()
+                && privaceCheckBox.isDisplayed() && continueButton.isDisplayed();
     }
+
+    public void clickOnThePrivacyButton() {
+        privaceCheckBox.click();
+    }
+
+    public void clickOnTheContinueButton() {
+        continueButton.click();
+    }
+
 }
+
