@@ -4,19 +4,21 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.time.Duration;
+
 public class WebDriverManager {
 
     public WebDriverManager(String webDriverType) {
         this.webDriverType = webDriverType;
     }
 
-    private WebDriver driver;
+    private static WebDriver driver;
 
     private static String webDriverType;
 
     private static int counter = 0;
 
-    private WebDriver createDriver() {
+    private static WebDriver createDriver() {
         switch (webDriverType) {
             case "CHROME":
                 counter++;
@@ -28,14 +30,20 @@ public class WebDriverManager {
             case "FIREFOX":
                 System.setProperty("webDriver.firefox.driver", "src/main/drivers/geckodriver.exe");
                 driver = new FirefoxDriver();
+
                 break;
             default:
                 System.out.println("This driver is not created");
         }
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(45));
+
         return driver;
+
     }
 
-    public WebDriver getDriver() {
+
+    public static WebDriver getDriver() {
         if (driver == null) {
             createDriver();
         }

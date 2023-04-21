@@ -1,5 +1,6 @@
 package pageObjects;
 
+import managers.WaitManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -47,6 +48,9 @@ public class RegisterPage extends Page {
 
 
     public void fillInTheRegisterPage(String firstName, String lastName, String email, String phone, String password, String confirmPassword) throws InterruptedException {
+
+        WaitManager.waitTillTheElemenentIsClickable(emailInput);
+
         firstNameInput.sendKeys(firstName);
         lastNameInput.sendKeys(lastName);
         Thread.sleep(2000);
