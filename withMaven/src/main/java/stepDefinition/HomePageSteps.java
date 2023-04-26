@@ -55,15 +55,11 @@ public class HomePageSteps {
     public void theIsClose(String link) throws Throwable {
         Thread.sleep(2500);
         testContext.getWebDriverManager().getDriver().close();
-        // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
     }
 
     @Then("^\"([^\"]*)\" is present within the current url$")
-    public void isPresentWithinTheCurrentUrl(String urlKeyWord){
+    public void isPresentWithinTheCurrentUrl(String urlKeyWord) {
         Assertions.assertTrue(testContext.getWebDriverManager().getDriver().getCurrentUrl().contains(urlKeyWord));
     }
-
-
-
 }

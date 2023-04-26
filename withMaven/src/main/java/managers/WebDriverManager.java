@@ -42,7 +42,6 @@ public class WebDriverManager {
 
     }
 
-
     public static WebDriver getDriver() {
         if (driver == null) {
             createDriver();

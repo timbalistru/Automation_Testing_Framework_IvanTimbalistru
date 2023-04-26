@@ -51,6 +51,8 @@ public class RegisterPage extends Page {
 
         WaitManager.waitTillTheElemenentIsClickable(emailInput);
 
+        WaitManager.waitTillTheElementIsVisibleWebElement(continueButton);
+
         firstNameInput.sendKeys(firstName);
         lastNameInput.sendKeys(lastName);
         Thread.sleep(2000);

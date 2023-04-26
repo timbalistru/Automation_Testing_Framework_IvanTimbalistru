@@ -13,5 +13,4 @@ public class TestContext {
     public WebDriverManager getWebDriverManager() {
         return webDriverManager;
     }
-
 }

@@ -36,7 +36,5 @@ public class LoginPage extends Page {
         Thread.sleep(3000);
         passwordInputLogin.sendKeys(password);
         loginNowButton.click();
-
     }
-
 }

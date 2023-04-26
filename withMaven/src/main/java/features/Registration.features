@@ -4,7 +4,6 @@ Feature: register feature test suite
   Background:
     Given "https://demo-opencart.com/" is accessed
 
-
   Scenario: myAccount button is accessible from home Page
     When my Account button is clicked
     And register account button is clicked

@@ -23,7 +23,6 @@ public abstract class Page {
     @FindBy(xpath = "//*[@id=\"column-right\"]/div/a[1]")
     protected WebElement loginButton;
 
-
     public void navigateToRegisterPage() throws InterruptedException {
 
         myAccountButton.click();
@@ -35,7 +34,6 @@ public abstract class Page {
         myAccountButton.click();
         Thread.sleep(1000);
         logoutButton.click();
-
     }
 
     public void clickLoginButton() throws InterruptedException {
@@ -43,20 +41,13 @@ public abstract class Page {
         loginButton.click();
     }
 
-
     public void clickOnMyAccountBtn() {
         myAccountButton.click();
     }
 
-    ;
-
-    //    An abstract class can contain both abstract and not abstract methods
-    //the abstract methods have to be overwritten
     public void clickOnRegisterButton() {
         registereButton.click();
     }
-
-    ;
 
     public boolean registerButtonIsDisplayed() throws InterruptedException {
         Thread.sleep(3000);

@@ -18,5 +18,4 @@ public class WaitManager {
     public static void waitTillTheElementIsVisibleWebElement(WebElement element) {
         driverWait.until(ExpectedConditions.elementToBeClickable(element));
     }
-
 }

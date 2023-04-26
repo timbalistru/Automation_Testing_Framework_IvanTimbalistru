@@ -26,7 +26,7 @@ public class JunitPractice {
 
         homePage.navigateToRegisterPage();
 
-        boolean urlIsValid =webDriverManager.getDriver().getCurrentUrl().contains("regoster");
+        boolean urlIsValid =webDriverManager.getDriver().getCurrentUrl().contains("register");
 
         Assertions.assertTrue(urlIsValid,"Adresa URL nu este valida");
 

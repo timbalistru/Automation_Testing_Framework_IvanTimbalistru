@@ -1,4 +1,4 @@
 package stepDefinition;
 
-public class MyStepdefs {
+public class MySteps {
 }

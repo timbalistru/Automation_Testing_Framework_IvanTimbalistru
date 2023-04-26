@@ -19,7 +19,6 @@ public class RegisterPageSteps {
     public RegisterPageSteps(TestContext context) {
         testContext = context;
         registerPage = new RegisterPage(testContext.getWebDriverManager().getDriver());
-
     }
 
     @When("^The registration form is populated with below data$")
@@ -35,7 +34,6 @@ public class RegisterPageSteps {
 
     }
 
-
     @And("^privacyButton is clicked$")
     public void privacybuttonIsClicked() throws InterruptedException {
         Thread.sleep(2000);
@@ -46,7 +44,6 @@ public class RegisterPageSteps {
     public void continuebuttonIsClicked() throws InterruptedException {
         registerPage.clickOnTheContinueButton();
     }
-
 
     @Then("^The following errors (are|are not) displayed on the screen:$")
     public void theFollowingErrorAreDisplayedInTheScreen(String condition, List<String> errorMessage) throws InterruptedException {
